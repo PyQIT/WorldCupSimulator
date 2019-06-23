@@ -2,6 +2,7 @@ package newgame;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,12 +14,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 
 public class LessThan32Teams {
 
     static ArrayList<Integer> iDS = new ArrayList<Integer>();
+    private static ObservableList<TeamsList.TeamClass> teamsMainList =
+            FXCollections.observableArrayList();
+    private int count = 0;
 
     private static Statement statement;
     private int counter = 0;
@@ -62,6 +67,12 @@ public class LessThan32Teams {
             }
         }while(counter < 4);
 
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
+
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
         tableView .setLayoutY(170);
@@ -83,7 +94,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -91,6 +102,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -101,6 +117,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -113,6 +130,12 @@ public class LessThan32Teams {
             }
         }while(counter < 8);
 
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
+
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
         tableView .setLayoutY(170);
@@ -134,7 +157,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -142,6 +165,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -152,6 +180,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -164,6 +193,12 @@ public class LessThan32Teams {
             }
         }while(counter < 12);
 
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
+
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
         tableView .setLayoutY(170);
@@ -185,7 +220,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -193,6 +228,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -203,6 +243,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -214,6 +255,12 @@ public class LessThan32Teams {
                 r.printStackTrace();
             }
         }while(counter < 16);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -235,7 +282,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -243,6 +290,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -253,6 +305,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -264,6 +317,12 @@ public class LessThan32Teams {
                 r.printStackTrace();
             }
         }while(counter < 20);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
@@ -286,7 +345,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -294,6 +353,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -304,6 +368,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -315,6 +380,12 @@ public class LessThan32Teams {
                 r.printStackTrace();
             }
         }while(counter < 24);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
@@ -337,7 +408,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -345,6 +416,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -355,6 +431,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -366,6 +443,12 @@ public class LessThan32Teams {
                 r.printStackTrace();
             }
         }while(counter < 28);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -388,7 +471,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -396,6 +479,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -406,6 +494,7 @@ public class LessThan32Teams {
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
         ResultSet rs;
+        count = 0;
 
         do {
 
@@ -417,6 +506,12 @@ public class LessThan32Teams {
                 r.printStackTrace();
             }
         }while(counter < 32);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
@@ -439,7 +534,7 @@ public class LessThan32Teams {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -447,6 +542,11 @@ public class LessThan32Teams {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }

@@ -1,24 +1,22 @@
 package matches;
 
-import java.sql.Statement;
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import newgame.TeamsList;
+
 
 public class MatchOpponents {
-    private static Statement statement;
-    ArrayList<Integer> iDS = new ArrayList<Integer>();
+    private ObservableList<TeamsList.TeamClass> teamsMainList =
+            FXCollections.observableArrayList();
 
     void chooseWinner(){
-        for(int i: iDS){
+        for(TeamsList.TeamClass i: teamsMainList){
             System.out.println(i);
         }
 
     }
 
-    public void setArrayList(ArrayList<Integer> iD){
-        this.iDS = iD;
-    }
-
-    public void setStatement(Statement statement){
-        this.statement = statement;
+    public void setArrayList(ObservableList<TeamsList.TeamClass> iD){
+        this.teamsMainList = iD;
     }
 }

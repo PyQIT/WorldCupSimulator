@@ -2,6 +2,7 @@ package newgame;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,10 +13,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 
 public class GroupStageRand {
+
+    static ObservableList<TeamsList.TeamClass> teamsMainList =
+            FXCollections.observableArrayList();
+    private int count = 0;
 
     ArrayList<Integer> iDS = new ArrayList<Integer>();
     private Random generator = new Random();
@@ -48,6 +54,12 @@ public class GroupStageRand {
               }
         }while(counter < 4);
 
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
+
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
         tableView .setLayoutY(170);
@@ -69,7 +81,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -77,6 +89,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -89,6 +106,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -106,6 +124,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
@@ -128,7 +152,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -136,6 +160,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -148,6 +177,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -165,6 +195,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
@@ -187,7 +223,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -195,6 +231,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -207,6 +248,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -224,6 +266,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -245,7 +293,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -253,6 +301,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -265,6 +318,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -282,6 +336,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
@@ -304,7 +364,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -312,6 +372,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -324,6 +389,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -341,6 +407,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
@@ -363,7 +435,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -371,6 +443,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -383,6 +460,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -400,6 +478,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -422,7 +506,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -430,6 +514,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }
@@ -442,6 +531,7 @@ public class GroupStageRand {
         ResultSet rs;
         int counter = 0;
         int id;
+        count = 0;
         do {
             id = 0;
             id = generator.nextInt(211) +1;
@@ -459,6 +549,12 @@ public class GroupStageRand {
                 r.printStackTrace();
             }
         }while(counter < 4);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
@@ -481,7 +577,7 @@ public class GroupStageRand {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -489,6 +585,11 @@ public class GroupStageRand {
         // Add the Label and the List to the HBox
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
+
+        do {
+            teamsMainList.add(sortedPoints.get(count));
+            count++;
+        }while(count < 4);
 
         return teamSelection;
     }

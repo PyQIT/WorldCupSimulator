@@ -27,7 +27,9 @@ public class ButtonHandlerSimulateGame extends ButtonHandlerNewGame {
 
             Pane root = new Pane();
             root.getChildren().addAll(bnw.button6, bnw.groups, bnw.raffle,
-                    groupSimulated.printGroup());
+                    groupSimulated.printGroup(),groupSimulated.printGroupSecond(),groupSimulated.printGroupThird(),
+                    groupSimulated.printGroupFourth(),groupSimulated.printGroupFivth(),groupSimulated.printGroupSixth(),
+                    groupSimulated.printGroupSeventh(),groupSimulated.printGroupEighth());
 
             // create a scene
             Scene scene = new Scene(root, 1650, 928);

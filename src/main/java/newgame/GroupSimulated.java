@@ -2,17 +2,20 @@ package newgame;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
+import java.util.Comparator;
+
 
 public class GroupSimulated {
 
     // Create the Lists for the ListViews
-    private ObservableList<TeamsList.TeamClass> teamsMainList =
+    private static ObservableList<TeamsList.TeamClass> teamsMainList =
             FXCollections.observableArrayList();
 
     private int counter = 0;
@@ -29,6 +32,12 @@ public class GroupSimulated {
                 counter++;
         }while(counter < 4);
 
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
+
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
         tableView .setLayoutY(170);
@@ -50,7 +59,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -62,23 +71,22 @@ public class GroupSimulated {
         return teamSelection;
     }
 
-/*    public Pane printGroupSecond() {
+    public Pane printGroupSecond() {
 
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 8);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
@@ -101,7 +109,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -118,18 +126,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 12);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
@@ -152,7 +159,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -169,18 +176,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 16);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -202,7 +208,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -219,18 +225,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 20);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(435);
@@ -253,7 +258,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -270,18 +275,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 24);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(835);
@@ -304,7 +308,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -321,18 +325,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 28);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(1235);
@@ -355,7 +358,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -372,18 +375,17 @@ public class GroupSimulated {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 32);
+
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+
+        teamsList.sorted(pointsComparator);
+        SortedList<TeamsList.TeamClass> sortedPoints
+                = new SortedList<>(teamsList, pointsComparator);
 
         final TableView<TeamsList.TeamClass> tableView = new TableView<TeamsList.TeamClass>();
         tableView .setLayoutX(55);
@@ -406,7 +408,7 @@ public class GroupSimulated {
         secondNameCol.setCellValueFactory(
                 new PropertyValueFactory<TeamsList.TeamClass,Integer>("points"));
 
-        tableView.setItems(teamsList);
+        tableView.setItems(sortedPoints);
         tableView.getColumns().addAll(firstNameCol, secondNameCol);
 
         // Create the HBox for the Months
@@ -416,7 +418,7 @@ public class GroupSimulated {
         teamSelection.getChildren().addAll(tableView);
 
         return teamSelection;
-    }*/
+    }
 
     public void setObservableList(ObservableList<TeamsList.TeamClass> teamsMainList){
         this.teamsMainList = teamsMainList;

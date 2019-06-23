@@ -28,8 +28,6 @@ public class DatabaseConnection {
             groupShuffle.setStatement(statement);
             LessThan32Teams lessThan32Teams = new LessThan32Teams();
             lessThan32Teams.setStatement(statement);
-            MatchOpponents matchOpponents = new MatchOpponents();
-            matchOpponents.setStatement(statement);
 
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
             statement.executeUpdate("drop table if exists teams");

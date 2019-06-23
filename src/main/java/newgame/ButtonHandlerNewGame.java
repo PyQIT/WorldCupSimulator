@@ -98,6 +98,8 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
 
     private EventHandler<ActionEvent> eventSimulate = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
+            GroupSimulated groupSimulated = new GroupSimulated();
+            groupSimulated.setObservableList(GroupStageRand.teamsMainList);
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
             bhsg.setScene(primaryStage);
             bhsg.buttonSimulateObject();
