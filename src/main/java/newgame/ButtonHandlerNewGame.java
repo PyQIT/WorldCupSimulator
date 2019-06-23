@@ -103,7 +103,6 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
             matchOpponents.setArrayList(GroupStageRand.teamsMainList);
             matchOpponents.chooseWinner();
             GroupSimulated.teamsMainList = matchOpponents.teamsMainList;
-//            GroupSimulated.teamsMainList = GroupStageRand.teamsMainList;
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
             bhsg.setScene(primaryStage);
             bhsg.buttonSimulateObject();

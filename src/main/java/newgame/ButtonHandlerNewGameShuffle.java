@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import mainmenu.ButtonOneHandlerObject;
+import matches.MatchOpponents;
 
 import java.io.FileInputStream;
 
@@ -73,8 +74,10 @@ public class ButtonHandlerNewGameShuffle extends ButtonsNewGame {
 
     private EventHandler<ActionEvent> eventSimulate = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
-            GroupSimulated groupSimulated = new GroupSimulated();
-            groupSimulated.setObservableList(GroupShuffle.teamsMainList);
+            MatchOpponents matchOpponents = new MatchOpponents();
+            matchOpponents.setArrayList(GroupStageRand.teamsMainList);
+            matchOpponents.chooseWinner();
+            GroupSimulated.teamsMainList = matchOpponents.teamsMainList;
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
             bhsg.setScene(primaryStage);
             bhsg.buttonSimulateObject();

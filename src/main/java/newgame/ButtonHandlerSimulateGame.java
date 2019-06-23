@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import matches.BracketMatchOpponents;
+import matches.MatchOpponents;
 
 import java.io.FileInputStream;
 
@@ -23,7 +25,7 @@ public class ButtonHandlerSimulateGame extends ButtonHandlerNewGame {
             // when button is pressed
             bnw.button6.setOnAction(eventPrevious);
             bnw.groups.setOnAction(eventBrackets);
-            bnw.raffle.setOnAction(bnw.eventRaffle);
+            bnw.raffle.setOnAction(eventRaffle);
 
             Pane root = new Pane();
             root.getChildren().addAll(bnw.button6, bnw.groups, bnw.raffle,
@@ -65,9 +67,25 @@ public class ButtonHandlerSimulateGame extends ButtonHandlerNewGame {
     private EventHandler<ActionEvent> eventBrackets = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e)
         {
+            BracketMatchOpponents bracketMatchOpponents = new BracketMatchOpponents();
+            bracketMatchOpponents.setArrayList(GroupSimulated.teamsMainList);
+            bracketMatchOpponents.chooseWinner();
             ButtonHandlerBracketsGame bhbg = new ButtonHandlerBracketsGame();
             bhbg.setScene(primaryStage);
             bhbg.buttonBracketsObject();
+        }
+    };
+
+    private EventHandler<ActionEvent> eventRaffle = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent e)
+        {
+            MatchOpponents matchOpponents = new MatchOpponents();
+            matchOpponents.setArrayList(GroupStageRand.teamsMainList);
+            matchOpponents.chooseWinner();
+            GroupSimulated.teamsMainList = matchOpponents.teamsMainList;
+            ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
+            bhsg.setScene(primaryStage);
+            bhsg.buttonSimulateObject();
         }
     };
 

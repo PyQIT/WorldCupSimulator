@@ -15,6 +15,7 @@ public class ButtonHandlerBracketsGame{
     void buttonBracketsObject() {
         try {
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
+            Brackets brackets = new Brackets();
 
             bhsg.button6();
             bhsg.groupStyle();
@@ -23,7 +24,12 @@ public class ButtonHandlerBracketsGame{
             bhsg.button6.setOnAction(event6);
 
             Pane root = new Pane();
-            root.getChildren().addAll(bhsg.button6);
+            root.getChildren().addAll(bhsg.button6,
+                    brackets.printGroup(),brackets.printGroupSecond(),brackets.printGroupThird(),
+                    brackets.printGroupFourth(),brackets.printGroupFivth(),brackets.printGroupSixth(),
+                    brackets.printGroupSeventh(),brackets.printGroupEight(), brackets.printGroupTenth(),
+                    brackets.printGroupEleventh(),brackets.printGroupTwelvth(),brackets.printGroupThirthteen(),
+                    brackets.printGroupFourthteen(),brackets.printGroupFifthteen(),brackets.printGroupSixteen(),brackets.printGroupSeventhen());
 
             // create a scene
             Scene scene = new Scene(root, 1650, 928);

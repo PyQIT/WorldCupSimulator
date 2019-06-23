@@ -31,7 +31,7 @@ public class GroupSimulated {
                 counter++;
         }while(counter < 4);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -81,7 +81,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 8);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -131,7 +131,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 12);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -181,7 +181,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 16);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -230,7 +230,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 20);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -280,7 +280,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 24);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -330,7 +330,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 28);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
@@ -380,7 +380,7 @@ public class GroupSimulated {
             counter++;
         }while(counter < 32);
 
-        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints);
+        Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getPoints).reversed();
 
         teamsList.sorted(pointsComparator);
         SortedList<TeamsList.TeamClass> sortedPoints
