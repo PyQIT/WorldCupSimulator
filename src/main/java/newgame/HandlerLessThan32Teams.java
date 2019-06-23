@@ -73,6 +73,8 @@ public class HandlerLessThan32Teams extends ButtonsNewGame {
 
     private EventHandler<ActionEvent> eventSimulate = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
+            GroupSimulated groupSimulated = new GroupSimulated();
+            groupSimulated.setObservableList(LessThan32Teams.teamsMainList);
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
             bhsg.setScene(primaryStage);
             bhsg.buttonSimulateObject();

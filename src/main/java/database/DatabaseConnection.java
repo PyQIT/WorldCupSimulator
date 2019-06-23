@@ -1,6 +1,5 @@
 package database;
 
-import matches.MatchOpponents;
 import newgame.GroupShuffle;
 import newgame.GroupStageRand;
 import newgame.LessThan32Teams;

@@ -21,7 +21,7 @@ public class ButtonHandlerSimulateGame extends ButtonHandlerNewGame {
             bnw.raffleStyle();
             bnw.setScene(primaryStage);
             // when button is pressed
-            bnw.button6.setOnAction(bnw.eventGroups);
+            bnw.button6.setOnAction(eventPrevious);
             bnw.groups.setOnAction(eventBrackets);
             bnw.raffle.setOnAction(bnw.eventRaffle);
 
@@ -68,6 +68,16 @@ public class ButtonHandlerSimulateGame extends ButtonHandlerNewGame {
             ButtonHandlerBracketsGame bhbg = new ButtonHandlerBracketsGame();
             bhbg.setScene(primaryStage);
             bhbg.buttonBracketsObject();
+        }
+    };
+
+    private EventHandler<ActionEvent> eventPrevious = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent e)
+        {
+            PreviousGroup.teamsMainList = GroupSimulated.teamsMainList;
+            ButtonHandlerPreviousGame bhpg = new ButtonHandlerPreviousGame();
+            bhpg.setScene(primaryStage);
+            bhpg.buttonNewPreviousGame();
         }
     };
 

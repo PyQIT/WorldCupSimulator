@@ -7,18 +7,16 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import mainmenu.ButtonOneHandlerObject;
-import matches.MatchOpponents;
 
 import java.io.FileInputStream;
 
 
-public class ButtonHandlerNewGame extends ButtonsNewGame {
+public class ButtonHandlerPreviousGame extends ButtonsNewGame {
     private Stage primaryStage;
 
-    public void buttonNewGameObject(){
+    void buttonNewPreviousGame(){
         try{
-            GroupStageRand groupStageRand = new GroupStageRand();
-            GroupShuffle groupShuffle = new GroupShuffle();
+            PreviousGroup previousGroup = new PreviousGroup();
             button6();
             raffleStyle();
             groupStyle();
@@ -29,11 +27,9 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
 
             Pane root = new Pane();
             root.getChildren().addAll(button6, groups, raffle,
-                    groupStageRand.printGroup(),groupStageRand.printGroupSecond(),groupStageRand.printGroupThird(),
-                    groupStageRand.printGroupFourth(),groupStageRand.printGroupFivth(),groupStageRand.printGroupSixth(),
-                    groupStageRand.printGroupSeventh(),groupStageRand.printGroupEighth());
-
-          //  groupShuffle.setArrayList(groupStageRand.iDS);
+                    previousGroup.printGroup(),previousGroup.printGroupSecond(),previousGroup.printGroupThird(),
+                    previousGroup.printGroupFourth(),previousGroup.printGroupFivth(),previousGroup.printGroupSixth(),
+                    previousGroup.printGroupSeventh(),previousGroup.printGroupEighth());
 
             // create a scene
             Scene scene = new Scene(root, 1650, 928);
@@ -63,32 +59,10 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
 
         }catch(Exception r){
             r.printStackTrace();
-    }
-}
-
-   public EventHandler<ActionEvent> eventGroups = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent e) {
-            if(TeamsList.iDS.size() == 32) {
-                GroupShuffle groupShuffle = new GroupShuffle();
-                groupShuffle.setArrayList(TeamsList.iDS);
-                ButtonHandlerNewGameShuffle bhnwgs = new ButtonHandlerNewGameShuffle();
-                bhnwgs.setScene(primaryStage);
-                bhnwgs.buttonNewGameObjectShuffle();
-            }else if(TeamsList.iDS.size() == 0){
-                ButtonHandlerNewGame bhnw = new ButtonHandlerNewGame();
-                bhnw.setScene(primaryStage);
-                bhnw.buttonNewGameObject();
-            }else{
-                LessThan32Teams lessThan32Teams = new LessThan32Teams();
-                lessThan32Teams.setArrayList(TeamsList.iDS);
-                HandlerLessThan32Teams handlerLessThan32Teams = new HandlerLessThan32Teams();
-                handlerLessThan32Teams.setScene(primaryStage);
-                handlerLessThan32Teams.buttonHandlerLesThan32Teams();
-            }
         }
-    };
+    }
 
-   private EventHandler<ActionEvent> event6 = new EventHandler<ActionEvent>() {
+    private EventHandler<ActionEvent> event6 = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e)
         {
             ButtonOneHandlerObject boho = new ButtonOneHandlerObject();
@@ -99,22 +73,10 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
 
     private EventHandler<ActionEvent> eventSimulate = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
-            MatchOpponents matchOpponents = new MatchOpponents();
-            matchOpponents.setArrayList(GroupStageRand.teamsMainList);
-            matchOpponents.chooseWinner();
-            GroupSimulated.teamsMainList = matchOpponents.teamsMainList;
-//            GroupSimulated.teamsMainList = GroupStageRand.teamsMainList;
+            GroupSimulated.teamsMainList = PreviousGroup.teamsMainList;
             ButtonHandlerSimulateGame bhsg = new ButtonHandlerSimulateGame();
             bhsg.setScene(primaryStage);
             bhsg.buttonSimulateObject();
-        }
-    };
-
-    public EventHandler<ActionEvent> eventRaffle = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent e) {
-            ButtonHandlerNewGame bhnw = new ButtonHandlerNewGame();
-            bhnw.setScene(primaryStage);
-            bhnw.buttonNewGameObject();
         }
     };
 
@@ -123,6 +85,7 @@ public class ButtonHandlerNewGame extends ButtonsNewGame {
             ButtonHandlerNewGameShuffle bhnwgs = new ButtonHandlerNewGameShuffle();
             bhnwgs.setScene(primaryStage);
             bhnwgs.buttonNewGameObjectShuffle();
+
         }
     };
 

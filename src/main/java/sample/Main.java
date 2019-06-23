@@ -15,7 +15,6 @@ public class Main extends Application {
     @Override
     public void start(final Stage primaryStage){
 
-
         try {
             ButtonHandler bt = new ButtonHandler();
 

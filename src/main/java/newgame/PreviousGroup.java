@@ -9,23 +9,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 
-public class GroupShuffle {
+public class PreviousGroup{
 
-     static ObservableList<TeamsList.TeamClass> teamsMainList =
+    // Create the Lists for the ListViews
+    static ObservableList<TeamsList.TeamClass> teamsMainList =
             FXCollections.observableArrayList();
-    private int count = 0;
 
-    private static ArrayList<Integer> iDS = new ArrayList<Integer>();
-
-    private static Statement statement;
     private int counter = 0;
 
 
@@ -34,18 +26,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        Collections.shuffle(iDS);
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                    teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                    counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 4);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -84,11 +68,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -97,18 +76,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 8);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -147,11 +118,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -160,18 +126,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 12);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -210,11 +168,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -223,18 +176,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 16);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -272,11 +217,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -285,18 +225,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 20);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -335,11 +267,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -348,18 +275,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 24);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -398,11 +317,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -411,18 +325,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 28);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -461,11 +367,6 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
@@ -474,18 +375,10 @@ public class GroupShuffle {
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
-        ResultSet rs;
-        count = 0;
 
         do {
-
-            try {
-                rs = statement.executeQuery("select * from teams where id = " + iDS.get(counter));
-                teamsList.add(new TeamsList.TeamClass(rs.getInt("id"), rs.getString("name"), rs.getDouble("power")));
-                counter++;
-            }catch(SQLException r){
-                r.printStackTrace();
-            }
+            teamsList.add(teamsMainList.get(counter));
+            counter++;
         }while(counter < 32);
 
         Comparator<TeamsList.TeamClass> pointsComparator = Comparator.comparing(TeamsList.TeamClass::getNationality);
@@ -524,19 +417,11 @@ public class GroupShuffle {
         teamSelection.setPadding(new Insets(10,0,0,10));
         teamSelection.getChildren().addAll(tableView);
 
-        do {
-            teamsMainList.add(sortedPoints.get(count));
-            count++;
-        }while(count < 4);
-
         return teamSelection;
     }
 
-    public void setArrayList(ArrayList<Integer> iD){
-        this.iDS = iD;
+    public void setObservableList(ObservableList<TeamsList.TeamClass> teamsMainList){
+        GroupSimulated.teamsMainList = teamsMainList;
     }
 
-    public void setStatement(Statement statement){
-        this.statement = statement;
-    }
 }

@@ -15,14 +15,13 @@ import java.util.Comparator;
 public class GroupSimulated {
 
     // Create the Lists for the ListViews
-    private static ObservableList<TeamsList.TeamClass> teamsMainList =
+    static ObservableList<TeamsList.TeamClass> teamsMainList =
             FXCollections.observableArrayList();
 
     private int counter = 0;
 
 
     public Pane printGroup() {
-
         // Create the Lists for the ListViews
         ObservableList<TeamsList.TeamClass> teamsList =
                 FXCollections.observableArrayList();
@@ -421,7 +420,7 @@ public class GroupSimulated {
     }
 
     public void setObservableList(ObservableList<TeamsList.TeamClass> teamsMainList){
-        this.teamsMainList = teamsMainList;
+        GroupSimulated.teamsMainList = teamsMainList;
     }
 
 }

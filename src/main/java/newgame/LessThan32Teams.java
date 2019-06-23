@@ -21,7 +21,7 @@ import java.util.Random;
 public class LessThan32Teams {
 
     static ArrayList<Integer> iDS = new ArrayList<Integer>();
-    private static ObservableList<TeamsList.TeamClass> teamsMainList =
+    static ObservableList<TeamsList.TeamClass> teamsMainList =
             FXCollections.observableArrayList();
     private int count = 0;
 
